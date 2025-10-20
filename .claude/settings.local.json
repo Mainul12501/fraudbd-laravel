@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//h/wamp64/www/PRACTICE-SECTIONS/laravel/package-build/composer-test-temp/**)",
+      "Bash(composer require:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
