@@ -39,7 +39,5 @@
                 "FraudBD": "Mainul12501\\Laravel\\Facades\\FraudBD"
             }
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
