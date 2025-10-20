@@ -1,0 +1,45 @@
+{
+    "name": "mainul12501/fraudbd-laravel",
+    "description": "Laravel package for integrating FraudBD API services to check courier information and detect fraud",
+    "keywords": ["laravel", "fraudbd", "fraud-detection", "courier", "api"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mainul Islam",
+            "email": "mainul125011@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1|^8.2|^8.3",
+        "illuminate/support": "^11.0|^12.0",
+        "illuminate/http": "^11.0|^12.0",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0|^10.0",
+        "phpunit/phpunit": "^10.0|^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mainul12501\\Laravel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mainul12501\\Laravel\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mainul12501\\Laravel\\FraudBDServiceProvider"
+            ],
+            "aliases": {
+                "FraudBD": "Mainul12501\\Laravel\\Facades\\FraudBD"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
