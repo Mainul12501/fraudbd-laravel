@@ -358,7 +358,7 @@ For complete API documentation, visit: [https://fraudbd.com/api-documentation](h
 
 Always use HTTPS for API requests (enabled by default). Never commit your API credentials to version control.
 
-If you discover any security-related issues, please email security@example.com instead of using the issue tracker.
+If you discover any security-related issues, please email mainul125011@gmail.com instead of using the issue tracker.
 
 ## Changelog
 
@@ -367,11 +367,6 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## Credits
-
-- [Your Name](https://github.com/yourusername)
-- [All Contributors](../../contributors)
 
 ## License
 
