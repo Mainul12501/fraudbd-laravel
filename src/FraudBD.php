@@ -119,9 +119,9 @@ class FraudBD
     protected function getAuthHeaders(): array
     {
         return [
-            'X-API-Key' => $this->apiKey,
-            'X-Username' => $this->username,
-            'X-Password' => $this->password,
+            'api_key' => $this->apiKey,
+            'user_name' => $this->username,
+            'password' => $this->password,
         ];
     }
 
@@ -176,7 +176,7 @@ class FraudBD
      */
     public function checkCourierInfo(string $phone, array $additionalData = []): array
     {
-        $data = array_merge(['phone' => $phone], $additionalData);
+        $data = array_merge(['phone_number' => $phone], $additionalData);
 
         return $this->request('POST', '/api/check-courier-info', $data);
     }
@@ -192,7 +192,7 @@ class FraudBD
      */
     public function checkCourierInfoByCourier(string $courierName, string $phone, array $additionalData = []): array
     {
-        $data = array_merge(['phone' => $phone], $additionalData);
+        $data = array_merge(['phone_number' => $phone], $additionalData);
 
         return $this->request('POST', "/api/check-courier-info/{$courierName}", $data);
     }
@@ -207,7 +207,8 @@ class FraudBD
      */
     public function bulkCheckCourierInfo(array $phones, array $additionalData = []): array
     {
-        $data = array_merge(['phones' => $phones], $additionalData);
+        $phoneNumbers = is_array($phones) ? implode(',', $phones) : $phones;
+        $data = array_merge(['phone_numbers' => $phoneNumbers], $additionalData);
 
         return $this->request('POST', '/api/bulk/check-courier-info', $data);
     }
@@ -224,7 +225,7 @@ class FraudBD
     {
         $data = array_merge(['process_id' => $processId], $additionalData);
 
-        return $this->request('POST', '/api/check-process-status', $data);
+        return $this->request('POST', '/api/bulk/check-process-status', $data);
     }
 
     /**

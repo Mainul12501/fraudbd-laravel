@@ -2,6 +2,14 @@
 
 All notable changes to `fraudbd-laravel` will be documented in this file.
 
+## 1.1.1 - 2025-10-21
+
+### Fixed
+- Fixed authentication header names to match FraudBD API specification (api_key, user_name, password)
+- Fixed request body parameter names (phone_number instead of phone)
+- Fixed bulk check to send phone_numbers as comma-separated string
+- Fixed process status endpoint URL to /api/bulk/check-process-status
+
 ## 1.1.0 - 2025-10-21
 
 ### Added
