@@ -66,10 +66,29 @@ class FraudBD
      */
     protected function configure(?array $config): void
     {
-        $this->apiKey = $config['api_key'] ?? Config::get('fraudbd.api_key');
-        $this->username = $config['username'] ?? Config::get('fraudbd.username');
-        $this->password = $config['password'] ?? Config::get('fraudbd.password');
-        $this->baseUrl = $config['base_url'] ?? Config::get('fraudbd.base_url');
+        $this->apiKey = $config['api_key'] ?? $this->getConfigValue('fraudbd.api_key');
+        $this->username = $config['username'] ?? $this->getConfigValue('fraudbd.username');
+        $this->password = $config['password'] ?? $this->getConfigValue('fraudbd.password');
+        $this->baseUrl = $config['base_url'] ?? $this->getConfigValue('fraudbd.base_url', 'https://fraudbd.com');
+    }
+
+    /**
+     * Get configuration value with fallback.
+     *
+     * @param string $key
+     * @param mixed $default
+     * @return mixed
+     */
+    protected function getConfigValue(string $key, $default = null)
+    {
+        try {
+            if (function_exists('config')) {
+                return config($key, $default);
+            }
+        } catch (\Exception $e) {
+            // Not in Laravel context
+        }
+        return $default;
     }
 
     /**
@@ -102,8 +121,8 @@ class FraudBD
     {
         $this->client = new Client([
             'base_uri' => $this->baseUrl,
-            'timeout' => Config::get('fraudbd.timeout', 30),
-            'verify' => Config::get('fraudbd.verify_ssl', true),
+            'timeout' => $this->getConfigValue('fraudbd.timeout', 30),
+            'verify' => $this->getConfigValue('fraudbd.verify_ssl', true),
             'headers' => [
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
