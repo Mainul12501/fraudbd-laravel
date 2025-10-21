@@ -5,7 +5,7 @@ A Laravel package for integrating FraudBD API services to check courier informat
 ## Features
 
 - Easy integration with FraudBD API
-- Support for Laravel 11.x and 12.x
+- Support for Laravel 10.x, 11.x and 12.x
 - Check courier information for phone numbers
 - Bulk courier information checking
 - Process status tracking
@@ -16,7 +16,7 @@ A Laravel package for integrating FraudBD API services to check courier informat
 ## Requirements
 
 - PHP 8.1 or higher
-- Laravel 11.x or 12.x
+- Laravel 10.x, 11.x or 12.x
 - Guzzle HTTP client 7.x
 
 ## Installation
